@@ -217,3 +217,23 @@ arrayNumber.map((number) => (document.body.innerHTML += ``));
 document.body.innerHTML += arrayNumber
   .map((number) => `<li>${number}</li>`)
   .join("................");
+
+//----------------
+//Méthodes Objects
+//----------------
+
+document.body.innerHTML += data
+  .sort((a, b) => b.age - a.age)
+  .filter((user)=> user.admin === false)
+  .filter((user)=> user.pseudo.includes("i"))
+  .map(
+    (user) =>
+      `<div class="user-card">
+  <h2>${user.pseudo}</h2>
+  <p>age : ${user.age} ans </p>
+  <p>mes technos : 
+  ${user.techno.map((tech) => tech).join(", ")} </p>
+  <p> Status : ${user.admin ? "modérateur" : "membre"}
+  </div>`
+  )
+  .join("");
